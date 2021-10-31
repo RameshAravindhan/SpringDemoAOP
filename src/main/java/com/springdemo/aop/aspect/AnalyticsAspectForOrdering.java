@@ -2,10 +2,7 @@ package com.springdemo.aop.aspect;
 
 import com.springdemo.aop.dao.StudentAccount;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -41,10 +38,10 @@ public class AnalyticsAspectForOrdering {
         }
     }
 
-    @AfterReturning(value = "execution( * get*(..))", returning = "str")
-    public void beforeGetter(StudentAccount str) {
+    @AfterThrowing(value = "execution( * get*(..))", throwing = "str")
+    public void beforeGetter(Throwable str) {
 
-        str.setName(str.getName().toUpperCase());
+        System.out.println("inside After throwing Method  " + str);
 
     }
 

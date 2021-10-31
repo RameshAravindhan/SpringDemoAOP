@@ -14,8 +14,13 @@ public class MainDemoclass {
 
         accountDAO.addAccount();
         accountDAO.setStudentAccount(new StudentAccount("Ramesh", 25));
+        try {
+            System.out.println("Name : " + accountDAO.getStudentAccount().getName() + " ; Age : " + accountDAO.getStudentAccount().getAge());
+        } catch (Exception e) {
+            System.out.println("Catched the Exception");
+        }
 
-        System.out.println("Name : " + accountDAO.getStudentAccount().getName() + " ; Age : " + accountDAO.getStudentAccount().getAge());
+
         annotationConfigApplicationContext.close();
 
     }
