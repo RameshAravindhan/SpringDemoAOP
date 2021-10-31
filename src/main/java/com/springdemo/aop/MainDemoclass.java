@@ -16,6 +16,8 @@ public class MainDemoclass {
         accountDAO.setStudentAccount(new StudentAccount("Ramesh", 25));
 
         System.out.println("Name : " + accountDAO.getStudentAccount().getName() + " ; Age : " + accountDAO.getStudentAccount().getAge());
+
+        System.out.println(accountDAO.UpdateAccount());
         annotationConfigApplicationContext.close();
 
     }

@@ -20,4 +20,11 @@ public class AccountDAO {
         System.out.println(getClass() + "  Executing Account DAO");
     }
 
+    public String UpdateAccount() {
+        System.out.println(getClass() + "  Executing Update DAO" + getStudentAccount().getAge() + getStudentAccount().getName());
+
+        return "Updated";
+    }
+
+
 }

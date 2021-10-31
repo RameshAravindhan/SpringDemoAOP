@@ -2,12 +2,9 @@ package com.springdemo.aop.aspect;
 
 import com.springdemo.aop.dao.StudentAccount;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
@@ -45,6 +42,17 @@ public class AnalyticsAspectForOrdering {
     public void beforeGetter(StudentAccount str) {
 
         str.setName(str.getName().toUpperCase());
+
+    }
+
+
+    @Around(value = "execution( * UpdateAccount(..))")
+    public Object beforeUpdateGetter(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+
+        System.out.println(System.currentTimeMillis());
+        Object result = proceedingJoinPoint.proceed();
+        System.out.println(System.currentTimeMillis()+2);
+        return result;
 
     }
 
