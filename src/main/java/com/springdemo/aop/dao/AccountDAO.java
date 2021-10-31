@@ -5,23 +5,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class AccountDAO {
 
-    String sampleString;
-    int i = 2;
 
-    public int getI() {
-        return i;
+    StudentAccount studentAccount;
+
+    public StudentAccount getStudentAccount() {
+        return studentAccount;
     }
 
-    public void setI(int i) {
-        this.i = i;
-    }
-
-    public String getSampleString() {
-        return sampleString;
-    }
-
-    public void setSampleString(String sampleString) {
-        this.sampleString = sampleString;
+    public void setStudentAccount(StudentAccount studentAccount) {
+        this.studentAccount = studentAccount;
     }
 
     public void addAccount() {

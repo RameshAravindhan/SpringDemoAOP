@@ -1,5 +1,6 @@
 package com.springdemo.aop.aspect;
 
+import com.springdemo.aop.dao.StudentAccount;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -36,16 +37,14 @@ public class AnalyticsAspectForOrdering {
         Object[] objects = joinPoint.getArgs();
 
         for (Object o : objects) {
-            System.out.println("The Argument is " + o);
+            System.out.println("The Argument is " + o.toString());
         }
     }
 
-    @AfterReturning(value = "execution( int get*(..))", returning = "str")
-    public void beforeGetter(int str) {
+    @AfterReturning(value = "execution( * get*(..))", returning = "str")
+    public void beforeGetter(StudentAccount str) {
 
-        str = str + 2;
-
-        System.out.println("Running after execution " + str);
+        str.setName(str.getName().toUpperCase());
 
     }
 
