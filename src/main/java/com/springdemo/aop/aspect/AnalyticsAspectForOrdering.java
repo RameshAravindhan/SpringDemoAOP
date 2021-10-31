@@ -40,8 +40,8 @@ public class AnalyticsAspectForOrdering {
         }
     }
 
-    @AfterReturning(value = "execution( Integer get*(..))", returning = "str")
-    public void beforeGetter(Integer str) {
+    @AfterReturning(value = "execution( int get*(..))", returning = "str")
+    public void beforeGetter(int str) {
 
         str = str + 2;
 

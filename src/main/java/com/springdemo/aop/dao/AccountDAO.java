@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 public class AccountDAO {
 
     String sampleString;
-    Integer i = 2;
+    int i = 2;
 
-    public Integer getI() {
+    public int getI() {
         return i;
     }
 
-    public void setI(Integer i) {
+    public void setI(int i) {
         this.i = i;
     }
 
