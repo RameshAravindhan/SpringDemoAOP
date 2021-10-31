@@ -23,6 +23,8 @@ public class AccountDAO {
     public String UpdateAccount() {
         System.out.println(getClass() + "  Executing Update DAO" + getStudentAccount().getAge() + getStudentAccount().getName());
 
+        int i = 1 / 0;
+
         return "Updated";
     }
 

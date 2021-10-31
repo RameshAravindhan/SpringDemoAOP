@@ -50,8 +50,23 @@ public class AnalyticsAspectForOrdering {
     public Object beforeUpdateGetter(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
         System.out.println(System.currentTimeMillis());
-        Object result = proceedingJoinPoint.proceed();
-        System.out.println(System.currentTimeMillis()+2);
+        Object result = null;
+        try {
+            result = proceedingJoinPoint.proceed();
+
+        } catch (Exception e) {
+            result = " Catched Result";
+
+       /*   To rethrow
+            return e;
+       */
+
+        }
+        System.out.println(proceedingJoinPoint.getSignature().toString());
+        System.out.println(proceedingJoinPoint.getArgs());
+        System.out.println(proceedingJoinPoint.getClass());
+        System.out.println(System.currentTimeMillis() + 2);
+
         return result;
 
     }
